@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { EditorState, EditorTab, FileNode } from '../types';
 import { fileSystemService } from '../services/filesystem.service';
+import type { ExecutionResult } from '../services/execution.service';
 
 interface EditorStore extends EditorState {
   setFiles: (files: FileNode[]) => void;
@@ -11,7 +12,16 @@ interface EditorStore extends EditorState {
   saveFile: (fileId: string) => void;
   toggleSidebar: () => void;
   toggleTheme: () => void;
+  setTheme: (theme: string) => void;
   loadFiles: () => void;
+  isTerminalOpen: boolean;
+  toggleTerminal: () => void;
+  executionResult: ExecutionResult | null;
+  setExecutionResult: (result: ExecutionResult | null) => void;
+  isExecuting: boolean;
+  setIsExecuting: (isExecuting: boolean) => void;
+  monacoTheme: string;
+  setMonacoTheme: (theme: string) => void;
 }
 
 export const useEditorStore = create<EditorStore>((set, get) => ({
@@ -20,6 +30,10 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
   files: [],
   isSidebarOpen: true,
   theme: 'dark',
+  monacoTheme: 'vs-dark',
+  isTerminalOpen: false,
+  executionResult: null,
+  isExecuting: false,
 
   setFiles: (files) => set({ files }),
 
@@ -90,7 +104,20 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
 
   toggleSidebar: () => set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
 
-  toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
+  toggleTheme: () => set((state) => ({ 
+    theme: state.theme === 'dark' ? 'light' : 'dark',
+    monacoTheme: state.theme === 'dark' ? 'vs-light' : 'vs-dark'
+  })),
+
+  setTheme: (theme) => set({ theme: theme as 'light' | 'dark' }),
+
+  setMonacoTheme: (monacoTheme) => set({ monacoTheme }),
+
+  toggleTerminal: () => set((state) => ({ isTerminalOpen: !state.isTerminalOpen })),
+
+  setExecutionResult: (executionResult) => set({ executionResult }),
+
+  setIsExecuting: (isExecuting) => set({ isExecuting }),
 
   loadFiles: () => {
     const files = fileSystemService.getAllFiles();

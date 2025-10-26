@@ -1,6 +1,7 @@
 import { Header } from './shared/components/organisms/Header';
 import { StatusBar } from './shared/components/organisms/StatusBar';
 import { TabBar } from './shared/components/organisms/TabBar';
+import { Terminal } from './shared/components/organisms/Terminal';
 import { FileExplorer } from './features/files/components/FileExplorer';
 import { CodeEditor } from './features/editor/components/CodeEditor';
 import { useEditorStore } from './shared/stores/editorStore';
@@ -21,8 +22,11 @@ function App() {
         
         <main className="flex-1 flex flex-col">
           <TabBar />
-          <div className="flex-1 overflow-hidden">
-            <CodeEditor />
+          <div className="flex-1 flex flex-col overflow-hidden">
+            <div className="flex-1 overflow-hidden">
+              <CodeEditor />
+            </div>
+            <Terminal />
           </div>
         </main>
       </div>

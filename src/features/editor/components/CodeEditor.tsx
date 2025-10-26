@@ -4,7 +4,7 @@ import { useEditorStore } from '../../../shared/stores/editorStore';
 import { useAutoSave, useKeyboardShortcut } from '../../../shared/hooks';
 
 export function CodeEditor() {
-  const { currentFileId, openTabs, updateTabContent, saveFile, theme } = useEditorStore();
+  const { currentFileId, openTabs, updateTabContent, saveFile, monacoTheme } = useEditorStore();
   
   const currentTab = openTabs.find((tab) => tab.id === currentFileId);
 
@@ -47,7 +47,7 @@ export function CodeEditor() {
         language={currentTab.language}
         value={currentTab.content}
         onChange={handleEditorChange}
-        theme={theme === 'dark' ? 'vs-dark' : 'vs-light'}
+        theme={monacoTheme}
         options={{
           fontSize: 14,
           minimap: { enabled: true },

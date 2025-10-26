@@ -31,7 +31,7 @@ npm run test:e2e         # Run E2E tests with Playwright
 ## Architecture Overview
 
 ### Project Type
-Production-grade real-time collaborative code editor (VS Code clone) built with React 19, TypeScript, and Monaco Editor. Currently frontend-only with planned backend integration.
+Production-grade real-time collaborative code editor (VS Code clone) built with React 19, TypeScript, and Monaco Editor. Features integrated terminal with code execution via Piston API, language selector, multiple themes, and more.
 
 ### Tech Stack
 - **Build Tool**: Vite (using rolldown-vite@7.1.14)
@@ -69,9 +69,16 @@ src/
 ### Key Design Patterns
 - **Atomic Design**: Components organized as atoms → molecules → organisms → templates → pages
 - **Feature Slices**: Each feature is self-contained with its own components, hooks, services, types
-- **Service Layer**: Centralized API service with Axios interceptors (token refresh, retry logic)
+- **Service Layer**: Centralized API service with Axios interceptors + Piston API for code execution
 - **Observer Pattern**: WebSocket event system for real-time collaboration
 - **CRDT**: Yjs for conflict-free collaborative editing
+
+### Code Execution
+- **Execution Service**: Integration with Piston API (free code execution service)
+- **Supported Languages**: JavaScript, TypeScript, Python, Java, C, C++, Go, Rust, PHP, Ruby, Shell, SQL
+- **Language Selector**: Dropdown to choose execution language
+- **Integrated Terminal**: Shows stdout, stderr, compilation errors, and exit codes
+- **Keyboard Shortcut**: Ctrl+Enter (Cmd+Enter on Mac) to run code
 
 ### State Management Strategy
 
