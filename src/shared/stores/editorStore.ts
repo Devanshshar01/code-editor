@@ -22,6 +22,8 @@ interface EditorStore extends EditorState {
   setIsExecuting: (isExecuting: boolean) => void;
   monacoTheme: string;
   setMonacoTheme: (theme: string) => void;
+  isPreviewOpen: boolean;
+  togglePreview: () => void;
 }
 
 export const useEditorStore = create<EditorStore>((set, get) => ({
@@ -34,6 +36,7 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
   isTerminalOpen: false,
   executionResult: null,
   isExecuting: false,
+  isPreviewOpen: false,
 
   setFiles: (files) => set({ files }),
 
@@ -118,6 +121,8 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
   setExecutionResult: (executionResult) => set({ executionResult }),
 
   setIsExecuting: (isExecuting) => set({ isExecuting }),
+
+  togglePreview: () => set((state) => ({ isPreviewOpen: !state.isPreviewOpen })),
 
   loadFiles: () => {
     const files = fileSystemService.getAllFiles();

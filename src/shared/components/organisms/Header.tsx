@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Play, Terminal as TerminalIcon } from 'lucide-react';
+import { Menu, X, Moon, Sun, Play, Terminal as TerminalIcon, Eye } from 'lucide-react';
 import { useEditorStore } from '../../stores/editorStore';
 import { executionService } from '../../services/execution.service';
 import { Button } from '../atoms/Button';
@@ -22,6 +22,8 @@ export function Header() {
     setMonacoTheme,
     toggleTerminal,
     isTerminalOpen,
+    togglePreview,
+    isPreviewOpen,
     currentFileId,
     openTabs,
     setExecutionResult,
@@ -129,6 +131,18 @@ export function Header() {
           title="Toggle terminal"
         >
           <TerminalIcon size={16} />
+        </Button>
+
+        {/* Preview Toggle */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={togglePreview}
+          className={`hover:bg-[#2a2d2e] p-1.5 ${isPreviewOpen ? 'bg-[#37373d]' : ''}`}
+          aria-label="Toggle preview"
+          title="Toggle HTML preview"
+        >
+          <Eye size={16} />
         </Button>
 
         {/* Theme Selector */}

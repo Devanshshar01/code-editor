@@ -55,6 +55,70 @@ code {
   },
   {
     id: nanoid(),
+    name: 'index.html',
+    type: 'file',
+    parentId: null,
+    language: 'html',
+    content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello CodeCollab</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Hello, CodeCollab!</h1>
+        <p>Your code editor with live preview</p>
+        <button onclick="alert('Welcome to CodeCollab! Edit this HTML to see live changes.')">Click Me</button>
+    </div>
+</body>
+</html>`,
+  },
+  {
+    id: nanoid(),
     name: 'README.md',
     type: 'file',
     parentId: null,
@@ -70,12 +134,16 @@ A real-time collaborative code editor built with React, TypeScript, and Monaco E
 - 💾 Auto-save functionality
 - 🎨 Syntax highlighting for 15+ languages
 - ⌨️ Keyboard shortcuts
+- 🎬 Live HTML preview
+- 🖥️ Code execution with stdin support
 
 ## Getting Started
 
 1. Open any file from the explorer
 2. Start editing
 3. Changes auto-save every 3 seconds
+4. For HTML files, click the Eye icon for live preview
+5. For code execution, select language and click Run
 
 Enjoy coding!`,
   },
