@@ -49,34 +49,33 @@ export function HTMLPreview() {
   if (!isPreviewOpen) return null;
 
   return (
-    <div className="h-full bg-[#1e1e1e] border-l border-[#2d2d2d] flex flex-col">
+    <div className="h-full bg-[#1e1e1e] border-l border-[#0000004d] flex flex-col">
       {/* Preview Header */}
-      <div className="h-10 bg-[#252526] border-b border-[#2d2d2d] flex items-center justify-between px-4">
-        <div className="flex items-center gap-3">
-          <Eye size={16} className="text-[#007acc]" />
-          <span className="text-sm font-semibold text-[#cccccc]">Live Preview</span>
+      <div className="h-6 bg-[#252526] border-b border-[#0000004d] flex items-center justify-between px-2">
+        <div className="flex items-center gap-2">
+          <Eye size={12} className="text-[#007acc]" />
+          <span className="text-xs font-semibold text-[#cccccc]">Live Preview</span>
           {isHTMLFile && (
             <span className="text-xs text-[#6a9955]">● Auto-updating</span>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <Button
-            variant="ghost"
-            size="sm"
+            variant="secondary"
+            size="xs"
             onClick={handleRefresh}
-            className="p-1.5 hover:bg-[#2a2d2e]"
             title="Refresh preview"
           >
-            <RefreshCw size={14} />
+            <RefreshCw size={10} />
           </Button>
           <Button
             variant="ghost"
-            size="sm"
+            size="xs"
             onClick={togglePreview}
-            className="p-1"
             aria-label="Close preview"
+            className="hover:bg-[#ffffff1a]"
           >
-            <X size={16} />
+            <X size={12} />
           </Button>
         </div>
       </div>
@@ -86,9 +85,9 @@ export function HTMLPreview() {
         {!isHTMLFile ? (
           <div className="h-full flex items-center justify-center text-gray-600">
             <div className="text-center">
-              <Eye size={48} className="mx-auto mb-4 text-gray-400" />
-              <p className="text-lg font-medium">HTML Preview</p>
-              <p className="text-sm mt-2">Open an HTML file to see live preview</p>
+              <Eye size={32} className="mx-auto mb-2 text-gray-400" />
+              <p className="text-sm font-medium">HTML Preview</p>
+              <p className="text-xs mt-1">Open an HTML file to see live preview</p>
             </div>
           </div>
         ) : (
@@ -103,7 +102,7 @@ export function HTMLPreview() {
 
       {/* Preview Footer */}
       {isHTMLFile && (
-        <div className="h-6 bg-[#007acc] text-white text-xs flex items-center justify-between px-3">
+        <div className="h-5 bg-[#007acc] text-white text-xs flex items-center justify-between px-2">
           <span>Preview Mode</span>
           <span>Last updated: {new Date(lastUpdate).toLocaleTimeString()}</span>
         </div>

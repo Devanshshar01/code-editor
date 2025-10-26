@@ -36,20 +36,20 @@ function FileTreeItem({ node, level }: FileTreeItemProps) {
   return (
     <div>
       <div
-        className="flex items-center gap-2 px-2 py-1 hover:bg-[#2a2d2e] cursor-pointer text-[#cccccc] text-xs"
-        style={{ paddingLeft: `${level * 16 + 12}px` }}
+        className="flex items-center gap-1 px-2 py-0.5 hover:bg-[#2a2d2e] cursor-pointer text-[#cccccc] text-xs"
+        style={{ paddingLeft: `${level * 16 + 8}px` }}
         onClick={handleClick}
         onDoubleClick={() => node.type === 'file' && setIsRenaming(true)}
       >
         {node.type === 'folder' && (
           <span className="flex-shrink-0">
-            {node.isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            {node.isExpanded ? <ChevronDown size={12} /> : <ChevronRight size={12} />}
           </span>
         )}
         {node.type === 'folder' ? (
-          <Folder size={14} className="flex-shrink-0 text-[#dcb67a]" />
+          <Folder size={12} className="flex-shrink-0 text-[#dcb67a]" />
         ) : (
-          <File size={14} className="flex-shrink-0 text-[#519aba]" />
+          <File size={12} className="flex-shrink-0 text-[#519aba]" />
         )}
         {isRenaming ? (
           <input
@@ -110,27 +110,25 @@ export function FileExplorer() {
   }, [loadFiles]);
 
   return (
-    <div className="h-full bg-[#252526] flex flex-col">
-      <div className="flex items-center justify-between px-3 py-2 border-b border-[#1e1e1e]">
+    <div className="h-full bg-[#1e1e1e] flex flex-col">
+      <div className="flex items-center justify-between px-3 py-1 border-b border-[#1e1e1e] bg-[#252526]">
         <span className="text-xs font-medium text-[#cccccc] uppercase tracking-wide">Explorer</span>
-        <div className="flex gap-1">
+        <div className="flex gap-0.5">
           <Button
-            variant="ghost"
-            size="sm"
+            variant="secondary"
+            size="xs"
             onClick={() => setShowNewFile(true)}
             title="New File"
-            className="p-1"
           >
-            <FilePlus size={16} />
+            <FilePlus size={12} />
           </Button>
           <Button
-            variant="ghost"
-            size="sm"
+            variant="secondary"
+            size="xs"
             onClick={() => setShowNewFolder(true)}
             title="New Folder"
-            className="p-1"
           >
-            <FolderPlus size={16} />
+            <FolderPlus size={12} />
           </Button>
         </div>
       </div>
@@ -151,7 +149,7 @@ export function FileExplorer() {
                   setNewItemName('');
                 }
               }}
-              className="w-full bg-gray-900 border border-blue-500 rounded px-2 py-1 text-white text-sm focus:outline-none"
+              className="w-full bg-[#3c3c3c] border border-[#007acc] rounded px-2 py-0.5 text-white text-xs focus:outline-none"
               autoFocus
             />
           </div>
@@ -172,7 +170,7 @@ export function FileExplorer() {
                   setNewItemName('');
                 }
               }}
-              className="w-full bg-gray-900 border border-blue-500 rounded px-2 py-1 text-white text-sm focus:outline-none"
+              className="w-full bg-[#3c3c3c] border border-[#007acc] rounded px-2 py-0.5 text-white text-xs focus:outline-none"
               autoFocus
             />
           </div>

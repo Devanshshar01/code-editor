@@ -16,7 +16,7 @@ function App() {
       
       <div className="flex-1 flex overflow-hidden">
         {isSidebarOpen && (
-          <aside className="w-60 border-r border-[#2d2d2d]">
+          <aside className="w-56 border-r border-[#0000004d]">
             <FileExplorer />
           </aside>
         )}
@@ -31,7 +31,7 @@ function App() {
               <Terminal />
             </div>
             {isPreviewOpen && (
-              <div className="w-1/2">
+              <div className="w-1/2 border-l border-[#0000004d]">
                 <HTMLPreview />
               </div>
             )}
