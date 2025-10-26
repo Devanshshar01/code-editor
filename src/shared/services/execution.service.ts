@@ -152,7 +152,6 @@ class ExecutionService {
   // Enhance Python code with common patterns and imports
   private enhancePythonCode(code: string): string {
     // Check if code already has common imports
-    const hasPrint = code.includes('print(');
     const hasInput = code.includes('input(');
     
     // Add common imports if they might be needed

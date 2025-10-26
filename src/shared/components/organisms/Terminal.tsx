@@ -86,11 +86,11 @@ export function Terminal() {
   };
 
   // Auto-detect if the code contains input() function and show input area
-  const handleAutoShowInput = () => {
-    if (currentTab && currentTab.content.includes('input(')) {
-      setShowInputArea(true);
-    }
-  };
+  // const handleAutoShowInput = () => {
+  //   if (currentTab && currentTab.content.includes('input(')) {
+  //     setShowInputArea(true);
+  //   }
+  // };
 
   if (!isTerminalOpen) return null;
 

@@ -9,7 +9,7 @@ interface DebugPanelProps {
   onLineChange: (lineNumber: number | null) => void;
 }
 
-export function DebugPanel({ code, currentLine, onLineChange }: DebugPanelProps) {
+export function DebugPanel({ code, onLineChange }: DebugPanelProps) {
   const [debugState, setDebugState] = useState(pythonDebugService.getDebugState());
   const [expression, setExpression] = useState('');
   const [evalResult, setEvalResult] = useState('');

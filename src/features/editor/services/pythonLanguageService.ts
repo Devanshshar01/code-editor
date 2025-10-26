@@ -5,24 +5,9 @@ import { configurePythonLanguage } from '../utils/pythonConfig';
 // This is a simplified client-side implementation that simulates
 // some of the features of a full Python language server
 
-interface PythonSymbol {
-  name: string;
-  kind: monaco.languages.SymbolKind;
-  location: {
-    uri: string;
-    range: monaco.IRange;
-  };
-}
-
-interface PythonDiagnostic {
-  range: monaco.IRange;
-  message: string;
-  severity: monaco.MarkerSeverity;
-}
-
 class PythonLanguageService {
-  private symbols: PythonSymbol[] = [];
-  private diagnostics: PythonDiagnostic[] = [];
+  // private symbols: PythonSymbol[] = [];
+  // private diagnostics: PythonDiagnostic[] = [];
 
   constructor() {
     this.initialize();
@@ -39,22 +24,22 @@ class PythonLanguageService {
   private registerProviders() {
     // Register document symbol provider for Python
     monaco.languages.registerDocumentSymbolProvider('python', {
-      provideDocumentSymbols: (model, token) => {
+      provideDocumentSymbols: (model) => {
         return this.getDocumentSymbols(model);
       }
     });
 
     // Register definition provider for Python
     monaco.languages.registerDefinitionProvider('python', {
-      provideDefinition: (model, position, token) => {
+      provideDefinition: (model, position) => {
         return this.getDefinition(model, position);
       }
     });
 
     // Register diagnostic provider for Python
     monaco.languages.registerDocumentFormattingEditProvider('python', {
-      provideDocumentFormattingEdits: (model, options, token) => {
-        return this.formatDocument(model, options);
+      provideDocumentFormattingEdits: (model) => {
+        return this.formatDocument(model);
       }
     });
   }
@@ -118,7 +103,7 @@ class PythonLanguageService {
     return locations;
   }
 
-  private formatDocument(model: monaco.editor.ITextModel, options: monaco.languages.FormattingOptions): monaco.languages.TextEdit[] {
+  private formatDocument(model: monaco.editor.ITextModel): monaco.languages.TextEdit[] {
     // Simple formatting implementation
     const text = model.getValue();
     const formattedText = this.formatPythonCode(text);
