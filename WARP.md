@@ -128,10 +128,10 @@ Cursor positions sync via throttled events (100ms) with similar flow.
 
 ## Deployment Configuration
 
-- **Base Path**: `/frontend-project/` (configured in vite.config.ts)
+- **Base Path**: `/code-editor/` (configured in vite.config.ts)
 - **Target**: GitHub Pages with automatic deployment via GitHub Actions
 - **Workflow**: `.github/workflows/jekyll-gh-pages.yml`
-- **Live URL**: https://devanshshar01.github.io/frontend-project/
+- **Live URL**: https://devanshshar01.github.io/code-editor/
 
 **Alternative Platforms**:
 - Vercel: Framework preset "Vite", build command `npm run build`, output dir `dist`
