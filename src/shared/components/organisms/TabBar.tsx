@@ -8,29 +8,29 @@ export function TabBar() {
   if (openTabs.length === 0) return null;
 
   return (
-    <div className="h-10 bg-gray-800 border-b border-gray-700 flex items-center overflow-x-auto">
+    <div className="h-9 bg-[#252526] border-b border-[#1e1e1e] flex items-center overflow-x-auto">
       {openTabs.map((tab) => (
         <div
           key={tab.id}
           className={cn(
-            'h-full flex items-center gap-2 px-4 border-r border-gray-700 cursor-pointer transition-colors',
+            'h-full flex items-center gap-2 px-3 border-r border-[#1e1e1e] cursor-pointer transition-colors group relative',
             currentFileId === tab.id
-              ? 'bg-gray-900 text-white'
-              : 'bg-gray-800 text-gray-400 hover:bg-gray-750'
+              ? 'bg-[#1e1e1e] text-white border-t-2 border-t-[#0e639c]'
+              : 'bg-[#2d2d2d] text-[#969696] hover:bg-[#2a2a2b]'
           )}
           onClick={() => setCurrentFile(tab.id)}
         >
-          <span className="text-sm whitespace-nowrap">{tab.fileName}</span>
-          {tab.isDirty && <span className="text-yellow-400 text-xs">●</span>}
+          <span className="text-xs whitespace-nowrap">{tab.fileName}</span>
+          {tab.isDirty && <span className="text-white text-[10px]">●</span>}
           <button
             onClick={(e) => {
               e.stopPropagation();
               closeTab(tab.id);
             }}
-            className="ml-2 hover:bg-gray-600 rounded p-0.5 transition-colors"
+            className="ml-1 hover:bg-[#3e3e42] rounded p-0.5 transition-colors opacity-0 group-hover:opacity-100"
             aria-label={`Close ${tab.fileName}`}
           >
-            <X size={14} />
+            <X size={12} />
           </button>
         </div>
       ))}

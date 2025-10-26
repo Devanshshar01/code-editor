@@ -36,8 +36,8 @@ function FileTreeItem({ node, level }: FileTreeItemProps) {
   return (
     <div>
       <div
-        className="flex items-center gap-2 px-2 py-1 hover:bg-gray-700 cursor-pointer text-gray-300 text-sm"
-        style={{ paddingLeft: `${level * 16 + 8}px` }}
+        className="flex items-center gap-2 px-2 py-1 hover:bg-[#2a2d2e] cursor-pointer text-[#cccccc] text-xs"
+        style={{ paddingLeft: `${level * 16 + 12}px` }}
         onClick={handleClick}
         onDoubleClick={() => node.type === 'file' && setIsRenaming(true)}
       >
@@ -47,9 +47,9 @@ function FileTreeItem({ node, level }: FileTreeItemProps) {
           </span>
         )}
         {node.type === 'folder' ? (
-          <Folder size={16} className="flex-shrink-0 text-blue-400" />
+          <Folder size={14} className="flex-shrink-0 text-[#dcb67a]" />
         ) : (
-          <File size={16} className="flex-shrink-0 text-gray-400" />
+          <File size={14} className="flex-shrink-0 text-[#519aba]" />
         )}
         {isRenaming ? (
           <input
@@ -61,7 +61,7 @@ function FileTreeItem({ node, level }: FileTreeItemProps) {
               if (e.key === 'Enter') handleRename();
               if (e.key === 'Escape') setIsRenaming(false);
             }}
-            className="bg-gray-800 border border-blue-500 rounded px-1 flex-1 text-white text-sm focus:outline-none"
+            className="bg-[#3c3c3c] border border-[#007acc] rounded px-1 flex-1 text-white text-xs focus:outline-none"
             autoFocus
             onClick={(e) => e.stopPropagation()}
           />
@@ -110,9 +110,9 @@ export function FileExplorer() {
   }, [loadFiles]);
 
   return (
-    <div className="h-full bg-gray-800 flex flex-col">
-      <div className="flex items-center justify-between p-2 border-b border-gray-700">
-        <span className="text-xs font-semibold text-gray-400 uppercase">Explorer</span>
+    <div className="h-full bg-[#252526] flex flex-col">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-[#1e1e1e]">
+        <span className="text-xs font-medium text-[#cccccc] uppercase tracking-wide">Explorer</span>
         <div className="flex gap-1">
           <Button
             variant="ghost"

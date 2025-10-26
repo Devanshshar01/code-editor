@@ -9,9 +9,9 @@ export function Select({ options, className, ...props }: SelectProps) {
   return (
     <select
       className={cn(
-        'bg-gray-800 text-gray-200 text-sm rounded px-3 py-1.5 border border-gray-700',
-        'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-        'hover:bg-gray-750 transition-colors cursor-pointer',
+        'bg-[#3c3c3c] text-[#cccccc] text-sm rounded px-2 py-1 border border-[#3c3c3c]',
+        'focus:outline-none focus:ring-1 focus:ring-[#007acc] focus:border-[#007acc]',
+        'hover:bg-[#464647] transition-colors cursor-pointer',
         className
       )}
       {...props}

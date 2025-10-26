@@ -10,12 +10,12 @@ function App() {
   const { isSidebarOpen } = useEditorStore();
 
   return (
-    <div className="h-screen flex flex-col bg-gray-900 text-white">
+    <div className="h-screen flex flex-col bg-[#1e1e1e] text-white">
       <Header />
       
       <div className="flex-1 flex overflow-hidden">
         {isSidebarOpen && (
-          <aside className="w-64 border-r border-gray-700">
+          <aside className="w-60 border-r border-[#2d2d2d]">
             <FileExplorer />
           </aside>
         )}

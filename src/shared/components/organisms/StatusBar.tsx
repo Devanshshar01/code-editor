@@ -5,20 +5,20 @@ export function StatusBar() {
   const currentTab = openTabs.find((tab) => tab.id === currentFileId);
 
   return (
-    <footer className="h-6 bg-blue-600 text-white text-xs flex items-center justify-between px-4">
+    <footer className="h-6 bg-[#007acc] text-white text-xs flex items-center justify-between px-3">
       <div className="flex items-center gap-4">
         {currentTab ? (
           <>
-            <span>{currentTab.fileName}</span>
-            <span className="text-blue-200">{currentTab.language}</span>
-            {currentTab.isDirty && <span className="text-yellow-300">● Unsaved</span>}
+            <span className="font-medium">{currentTab.language.toUpperCase()}</span>
+            <span className="opacity-90">{currentTab.fileName}</span>
+            {currentTab.isDirty && <span className="opacity-90">● Modified</span>}
           </>
         ) : (
-          <span>No file open</span>
+          <span>No file selected</span>
         )}
       </div>
-      <div className="flex items-center gap-4">
-        <span>{openTabs.length} files open</span>
+      <div className="flex items-center gap-4 opacity-90">
+        <span>{openTabs.length} files</span>
       </div>
     </footer>
   );
