@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh-pages": "tsc -b && vite build --mode github-pages",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
@@ -62,10 +63,7 @@
     "tailwindcss": "^4.1.16",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
-    "vite": "npm:rolldown-vite@7.1.14",
+    "vite": "^5.4.11",
     "vitest": "^4.0.3"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.1.14"
   }
 }
